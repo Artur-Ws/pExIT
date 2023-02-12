@@ -11,4 +11,5 @@ else:
 Use code your from task1, extend it to check if name provided by user is valid (not empty, string-type),
 if not, print message that name is not valid. then ask if user wants to multiply, or add numbers,
 use if statement to perform correct operation.
+
 '''
