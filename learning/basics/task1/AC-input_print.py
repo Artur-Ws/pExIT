@@ -1,5 +1,5 @@
 x = input("Hello! What is your name? ")
-print("Hello " + x + "!, give me two numbers and i will multiply them.")
+print(f"Hello {x}!, give me two numbers and i will multiply them.")
 y = 0
 z = 0
 while y == 0:
@@ -15,4 +15,4 @@ while z == 0:
     except:print("Sorry, numbers only :)")
 
 
-print("Multiplication of your numbers is " + str(y * z))
+print(f"Multiplication of your numbers is  {y * z}")
