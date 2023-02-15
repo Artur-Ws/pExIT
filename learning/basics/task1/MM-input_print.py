@@ -12,7 +12,7 @@ IMPORTANT: Learn about f-strings in python, use them to print messages!
 '''
 
 
-class InputPrinter():
+class InputPrinter:
 
     def __init__(self):
         self.name = input("Hello! What is your name? ")
