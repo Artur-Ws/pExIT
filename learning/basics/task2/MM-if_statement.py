@@ -17,67 +17,66 @@ use if statement to perform correct operation.
 '''
 
 
-class InputPrinter:
+class IfStatementApp:
 
     def __init__(self):
         self.name = input("Hello! What is your name? ")
+        self.name = self.__name_checker__()
+        self.numbers = []
 
     def main_process(self):
 
-        name = self.__name_checker__()
-        multiplying = input(f"{name}, do You want to do some crazy multiplying shit or regular adding? (for multiplying type 'm', for adding type 'a'): ")
+        action = input(f"{self.name}, do You want to do some crazy multiplying shit or regular adding? (for multiplying type 'm', for adding type 'a'): ")
 
-        if multiplying == "m":
-            self.multiplier()
-        elif multiplying == "a":
-            self.adder()
+        if action == "m":
+            self.calculator("multiply", "multiplication")
+        elif action == "a":
+            self.calculator("add", "adding")
         else:
             os.system(exit("Application exit code: Wrong answer"))
 
-    def multiplier(self):
+    def get_number(self, op_verb):
 
-        name = self.__name_checker__()
+        self.numbers.append(self.__num_checker__(input(f"{self.name}, give me first number to {op_verb}: ")))
+        self.numbers.append(self.__num_checker__(input(f"Now give me second number {self.name}: ")))
 
-        first_number = input(f"{name}, give me first number to multiply: ")
-        self.__int_checker__(first_number)
+        return self.numbers
 
-        second_number = input(f"Now give me second number {name}: ")
-        self.__int_checker__(second_number)
+    def calculator(self, op_verb, op_noun):
+        self.numbers = self.get_number(op_verb)
 
-        print(f"{name}, Your result of multiplication for {first_number} and {second_number} is {int(first_number) * int(second_number)}!!!")
+        if op_verb == "multiply":
+            calculation = self.numbers[0] * self.numbers[1]
+        elif op_verb == "add":
+            calculation = self.numbers[0] + self.numbers[1]
 
-    def adder(self):
-
-        name = self.__name_checker__()
-        first_number = input(f"{name}, give me first number to add: ")
-        self.__int_checker__(first_number)
-
-        second_number = input(f"Now give me second number {name}: ")
-        self.__int_checker__(second_number)
-
-        print(f"{name}, Your result of adding for {first_number} and {second_number} is {int(first_number) + int(second_number)}!!!")
+        print(f"{self.name}, Your result of {op_noun} for {self.numbers[0]} and {self.numbers[1]} is {round(float(calculation),4)}!!!")
 
     def __name_checker__(self):
 
         if self.name == "":
             print("All right Nameless Noob, keep Your secrets...")
             self.name = "Nameless Noob"
-
+        elif self.name.isalpha():
+            self.name = self.name.capitalize()
         else:
-            pass
+            os.system(exit("Application exit code: No real name detected!"))
 
         return self.name
 
-    def __int_checker__(self, num):
+    def __num_checker__(self, num):
 
         try:
-            int(num)
+            num = int(num)
         except ValueError:
-            os.system(exit("Application exit code: Entered character is not a number value!"))
 
+            try:
+                num = float(num)
+            except ValueError:
+                os.system(exit("Application exit code: Entered character is not a number value!"))
         return num
 
 
 if __name__ == "__main__":
 
-    InputPrinter().main_process()
+    IfStatementApp().main_process()
