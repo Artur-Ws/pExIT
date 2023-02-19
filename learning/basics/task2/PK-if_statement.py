@@ -10,9 +10,9 @@ elif name.isalpha() == False:
 
 else:
 
-    choice = input('Would you like to multiply something? Type Yes or No. ')
+    choice = input('Would you like to multiply or add numbers? Type multiply or add. ')
 
-    if choice.capitalize() == "Yes":
+    if choice.capitalize() == "Multiply":
 
         number_1 = int(input("Type first number to multiplication "))
 
@@ -20,9 +20,13 @@ else:
 
         print(f"{name.capitalize()}, your result of multiplication for {number_1}, and {number_2} is  {number_1 * number_2}")
 
-    elif choice.capitalize() == "No":
+    elif choice.capitalize() == "Add":
 
-        print("OK. Nevermind.")
+        number_1 = int(input("Type first number to addition. "))
+
+        number_2 = int(input("Type second number to addition. "))
+
+        print(f"{name.capitalize()}, your result of addition for {number_1}, and {number_2} is  {number_1 + number_2}")
 
     else:
         
