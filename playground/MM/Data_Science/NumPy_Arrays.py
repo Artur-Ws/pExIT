@@ -63,7 +63,7 @@ arr_11 = np.random.rand(5, 5)      # Tworzy macierz 5 x 5 z losowych liczb od 0 
 print(arr_11)
 print("")
 
-arr_12 = np.random.randn(2)      # Tworzy wektor z losowych liczb z rozkłądu Gausa złożony z 2 wartości
+arr_12 = np.random.randn(2)      # Tworzy wektor z losowych liczb z rozkładu Gausa złożony z 2 wartości
 
 print(arr_12)
 print("")
