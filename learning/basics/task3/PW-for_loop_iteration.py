@@ -14,7 +14,14 @@ user_number = input("Type a number in range 1-100. Don't try to put numbers out 
 
 while int(user_number) not in range(1, 100):
 
-    user_number = input("Eso no no no, es asi. Give me a number in range 1-100 ")
+    user_number = input("Eso no no no, es asi. Give me a number in range 1-100: ")
 
 else:
-    print ("well done")
+
+    for i in prime_numbers:
+        if(i == int(user_number)):
+            print("Prime")
+            break
+        else:
+            print("Not prime")
+            break
