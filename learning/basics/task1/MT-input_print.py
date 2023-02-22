@@ -13,11 +13,10 @@
 #     out: Artur, your result of multiplication for 3 and 5 is 15!
 # IMPORTANT: Learn about f-strings in python, use them to print messages!
 # '''
-print("Hello, what is your name?")
-name = input("")
-print("Hi {name} put first number to multiply".format(name=name))
+name = input("Hello, what is your name? \n")
+print(f"Hi {name} put first number to multiply")
 number1 = int(input(""))
-print("Put second number to multiply".format(number1=number1))
+print("Put second number to multiply")
 number2 = int(input(""))
 print(f"{number1 * number2}")
 
