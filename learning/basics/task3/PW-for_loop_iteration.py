@@ -10,24 +10,23 @@ not necessary to create function, but you can if you want to.
 
 prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
-user_number = input("Type a number in range 1-100. Don't try to put numbers out of range - I'm going to check this! ")
+user_number = input("Type a number in range 1-100 ")
 
 while int(user_number) not in range(1, 101):
 
-    user_number = input("Eso no no no, es asi. Give me a number in range 1-100: ")
+    user_number = input("Give me a number in range 1-100: ")
 
-else:
+for i in prime_numbers:
 
-    for i in prime_numbers:
+    if i == int(user_number):
 
-        if(i == int(user_number)):
+        print(f"The number {user_number} is a prime number.")
 
-            print("Prime number")
+        break
 
-            break
+    else:
 
-        else:
+        print(f"The number {user_number} is a complex number.")
 
-            print("Not prime number")
+        break
 
-            break
