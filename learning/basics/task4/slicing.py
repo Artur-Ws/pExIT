@@ -12,7 +12,7 @@ colors = ['red', 'blue', 'yellow', 'orange', 'purple', 'gray', 'green']
 
 
 def get_colors(categories, color_list):
-    # place your code here
+    # place your code here (and remove "pass" keyword)
     pass
 
 
