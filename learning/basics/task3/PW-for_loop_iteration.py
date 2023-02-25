@@ -29,4 +29,3 @@ for i in prime_numbers:
         print(f"The number {user_number} is a complex number.")
 
         break
-
