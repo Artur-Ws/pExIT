@@ -3,7 +3,7 @@ def greeting(name):
 
 names = ["Patrycja", "Mieszko", "Paweł"]
 
-#two ways to print greeting, using names from tupple
+#two ways to print greeting, using names from list
 
 print(names)
 
