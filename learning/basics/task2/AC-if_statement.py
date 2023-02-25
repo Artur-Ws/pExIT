@@ -1,12 +1,9 @@
 
 def typing_username():
-    while True:
-        username = input("Hello! What is your name? ")
-        if username == "":
-            print("Come on, name like that doesn't exist. Try again (At least 1 figure)")
-        else:
-            print (f"Hello {username}.")
-            break
+    username = input("Hello! What is your name? -> ")
+    while username == "":
+        username = input("Come on, name like that doesn't exist. Try again (At least 1 figure) -> ")
+    print(f"Hello {username}.")
 
 
 def adding():
@@ -50,10 +47,10 @@ def multiplying():
 
 
 def choosing_what_to_do():
-    choosing = input("""Would u like to add or multiply 2 numbers? "A" for adding or "M" for multiplying. -> """)
-    if choosing == ("A".casefold()):
+    choosing = input('Would u like to add or multiply 2 numbers? "A" for adding or "M" for multiplying. -> ')
+    if choosing.casefold() == ("a"):
         adding()
-    elif choosing == ("M".casefold()):
+    elif choosing.casefold() == ("m"):
         multiplying()
     else:
         choosing_what_to_do()
