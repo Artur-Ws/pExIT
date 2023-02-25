@@ -19,4 +19,3 @@ for number in palindromes:
     assert is_palindrome(number), f"Number {number} is palindrome! Your function says it is not!"
 for number in not_palindromes:
     assert not is_palindrome(number), f"Number {number} is not palindrome! Your function says it is!"
-    

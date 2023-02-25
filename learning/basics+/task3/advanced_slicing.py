@@ -17,9 +17,8 @@ def cut_brackets(text):
     return list_of_sentences
 
 
-# Below you can find a simple test (assertion), it checks if your function works properly by comparing expected results
-# with list obtained from your function. When you run this script and function will not return correct list it will
-# tell you how your list looks like and how expected one should look like, just look at error log
+# test section - do not change code below!
+# It will check if your implementation is correct and will inform you if it is not, just look at error log.
 expected = ["such as this brief comment", "as in this example", "such as the comma that appeared just a few words ago"]
 assert expected == cut_brackets(example_text), f"List with sentences from your function is not as expected!\n" \
                                                f"Expected list:{expected} \nYour list:{cut_brackets(example_text)}"
