@@ -48,7 +48,7 @@ if str(decision) == 'yes':
 
     print(f'Great job! You earned {points} points')
 else:
-    print('to spierdalaj')
+    print('good bye')
 
 
 
