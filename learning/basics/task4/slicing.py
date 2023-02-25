@@ -10,6 +10,7 @@ contains only as many colors as needed for chart.
 
 colors = ['red', 'blue', 'yellow', 'orange', 'purple', 'gray', 'green']
 
+
 def get_colors(categories, color_list):
     # place your code here
     pass
