@@ -25,9 +25,10 @@ if name.isalpha():
     print(f"Hello {name} put first number to multiply")
 else:
     print("Invalid name!")
-    print("Hi anonymous hacker put first number to multiply...")
 
-number1 = int(input(""))
-print("Put second number to multiply")
-number2 = int(input(""))
-print(f"{number1 * number2}")
+number1 = int(input("Enter the first number: "))
+if number1 == 0:
+    print("0 multiply is possiblent")
+else:
+    number2 = int(input("Enter the second number to multiply: "))
+    print(f"Multiply of {number1} and {number2} is {number1 * number2}")
