@@ -12,20 +12,16 @@ prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
 
 user_number = input("Type a number in range 1-100 ")
 
-while int(user_number) not in range(1, 101):
-
+while not user_number.isdigit() or int(user_number) not in range(1, 101):
     user_number = input("Give me a number in range 1-100: ")
 
+is_number_found = False
+
 for i in prime_numbers:
-
     if i == int(user_number):
-
         print(f"The number {user_number} is a prime number.")
-
+        is_number_found = True
         break
 
-    else:
-
-        print(f"The number {user_number} is a complex number.")
-
-        break
+if not is_number_found:
+    print(f"The number {user_number} is a complex number.")
