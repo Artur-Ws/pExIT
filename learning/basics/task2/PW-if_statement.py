@@ -15,7 +15,7 @@ maths_op = input("Wanna multiply two numbers or add them? For multiplication typ
 while not (maths_op == str("A") or maths_op == str("M")):
     maths_op = input("For multiplication type M, for addition type A ")
 
-if maths_op == str("M"):
+if maths_op == "M":
     num_1 = float(input("Ok then. Give me the first number: "))
 
     num_2 = float(input("The second number is: "))
@@ -24,7 +24,7 @@ if maths_op == str("M"):
 
     print(f"The result of multiplying {num_1} and {num_2} is {result}")
 
-elif maths_op == str("A"):
+elif maths_op == "A":
 
     num_1 = float(input("Ok then. Give me the first number: "))
 
