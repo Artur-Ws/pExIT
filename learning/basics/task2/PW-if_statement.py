@@ -12,7 +12,7 @@ print(f"Nice to meet you {name}")
 
 maths_op = input("Wanna multiply two numbers or add them? For multiplication type M, for addition type A: ")
 
-while not (maths_op == str("A") or maths_op == str("M")):
+while not (maths_op == "A" or maths_op == "M"):
     maths_op = input("For multiplication type M, for addition type A ")
 
 if maths_op == "M":
