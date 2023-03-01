@@ -24,16 +24,17 @@ prime_number_variable = 0
 for i in prime_numbers:
     if number == i:
         prime_number_variable = 1
-
-#second way to do it without a loop
-if number in prime_numbers:
-    print(f"{number} is prime number")
-
-else:
-    print(f"{number} is not a prime number")
+        break    
 
 if prime_number_variable == 0:
     print(f"{number} is not prime number")
 
 else:
     print(f"{number} is prime number")
+
+#second way - without a loop
+if number in prime_numbers:
+    print(f"{number} is prime number")
+
+else:
+    print(f"{number} is not a prime number")
