@@ -9,13 +9,11 @@ not_palindromes = [123421, 1232, 987689]
 
 
 def is_palindrome(number):
-    numberlist = []
+    number_list = []
     for i in str(number):
-        numberlist.append(int(i))
-    numberlist_rev = numberlist[::-1]
-    if numberlist == numberlist_rev:
-        return True
-    return False
+        number_list.append(int(i))
+    number_list_reverse = number_list[::-1]
+    return number_list == number_list_reverse
 
 
 # test section - do not change code below!
