@@ -1,11 +1,22 @@
+age = 450
+
 class User:
-    pass
+    age = 0
+    name = ""
 
-seba = User()
-areczek = User()
+    def print_age(self, message):
+        print(f"name: {self.name}, age: {self.age}, message: {message}")
+    
+    def another_method(self):
+        pass
 
-seba.age = 16
-areczek.age = 24
+user_1 = User()
+user_2 = User()
 
-print(seba.age)
-print(areczek.age)
+user_1.name = "Areczek"
+user_1.age = 21
+user_1.print_age("sample text")
+
+user_2.name = "Mireczek"
+user_2.age = 37
+user_2.print_age("sample text")
