@@ -11,21 +11,24 @@ class Character:
         self.backpack = []
         
     #is it ok to add crit strike like that?
-    def get_damage(self, damage, crit_luck):
+    def get_damage(self, damage, crit_luck, method):
         crit_randomise = randint(1,100)
         print(f"Attacker crit chance is: {crit_randomise}")
+
         if crit_luck >= crit_randomise:
             print(f"CRITICAL STRIKE LOADED")
             damage *= 2
-            self.health_points = self.health_points - damage #self.health_points = self.health_points - (damage * 2) #
-            print(f"{self.name} taken {damage} damage. {self.health_points} health left.")
+            self.health_points = self.health_points - damage.method(self, damage) #self.health_points = self.health_points - (damage * 2) #not working
+            print(f"{self.name} taken {damage.method(self, damage)} damage. {self.health_points} health left.")
+
             if self.health_points <= 0:
                 print(f"{self.name} has died.")
                 self.is_alive = False
+
         else:
             print(f"CRITICAL STRIKE NOT LOADED")
-            self.health_points = self.health_points - damage
-            print(f"{self.name} taken {damage} damage. {self.health_points} health left.")
+            self.health_points = self.health_points - damage.method(self, damage)
+            print(f"{self.name} taken {damage.method(self, damage)} damage. {self.health_points} health left.")
             if self.health_points <= 0:
                 print(f"{self.name} has died.")
                 self.is_alive = False
@@ -41,6 +44,11 @@ class Character:
         else:
             print(f"{self.name} Not dodged")
             return False
+        
+    def reduce_damage(self, damage):
+        damage = damage * (1 - (self.defend/100))
+        print(f"Damage :{damage}")
+
         
 class Iteam:
     def __init__(self, name, value, drop_chance):
@@ -77,7 +85,7 @@ while player.health_points > 0:
             pass
 
         else:
-            to_attack.get_damage(player.strenght, player.crit_chance)
+            to_attack.get_damage(player.strenght, player.crit_chance, to_attack.reduce_damage(player.strenght))
 
         if to_attack.is_alive:
 
@@ -85,7 +93,7 @@ while player.health_points > 0:
                 pass
 
             else:
-                player.get_damage(to_attack.strenght, to_attack.crit_chance)
+                player.get_damage(to_attack.strenght, to_attack.crit_chance, player.reduce_damage(to_attack.strenght))
 
     for i, enemy in enumerate(enemies):
         if not enemy.is_alive:
