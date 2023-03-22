@@ -13,28 +13,27 @@ class Character:
         self.backpack = []
         
     #is it ok to add crit strike like that?
-    def get_damage(self, damage, crit_luck):
+    def get_damage(self, damage):
+        self.health_points = self.health_points - self.reduced_damage(damage)
+        print(f"{self.name} taken {self.reduced_damage(damage)} damage. {self.health_points} health left.")
+
+        if self.health_points <= 0:
+            print(f"{self.name} has died.")
+            self.is_alive = False
+
+    def critical_strike(self, damage, crit_luck):
         crit_randomise = randint(1,100)
-        print(f"Attacker crit chance is: {crit_randomise}")
+        print(f"Attacker crit chance is: {crit_randomise}") 
 
         if crit_luck >= crit_randomise:
             print(f"CRITICAL STRIKE LOADED")
             damage *= 2
-            self.health_points = self.health_points - self.reduced_damage(damage) #self.health_points = self.health_points - (damage * 2) #not working
-            print(f"{self.name} taken {self.reduced_damage(damage)} damage. {self.reduced_damage(damage)} health left.")
-
-            if self.health_points <= 0:
-                print(f"{self.name} has died.")
-                self.is_alive = False
+            return damage
 
         else:
-            print(f"CRITICAL STRIKE NOT LOADED")
-            self.health_points = self.health_points - self.reduced_damage(damage)
-            print(f"{self.name} taken {self.reduced_damage(damage)} damage. {self.health_points} health left.")
-            if self.health_points <= 0:
-                print(f"{self.name} has died.")
-                self.is_alive = False
-        
+            print(f"Critical strike not loaded")
+            return damage
+
     def dodge(self):
         dodge_luck = randint(1,100)
         print(f"Dodge luck: {dodge_luck}")
@@ -87,7 +86,8 @@ while player.health_points > 0:
             pass
 
         else:
-            to_attack.get_damage(player.strenght, player.crit_chance)
+            damage = to_attack.critical_strike(player.strenght, player.crit_chance)
+            to_attack.get_damage(damage)
 
         if to_attack.is_alive:
 
@@ -95,7 +95,8 @@ while player.health_points > 0:
                 pass
 
             else:
-                player.get_damage(to_attack.strenght, to_attack.crit_chance)
+                damage = player.critical_strike(to_attack.strenght, to_attack.crit_chance)
+                player.get_damage(damage)
 
     for i, enemy in enumerate(enemies):
         if not enemy.is_alive:
