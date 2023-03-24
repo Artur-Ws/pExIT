@@ -2,16 +2,18 @@ from random import randint
 
 
 class Character:
-    def __init__(self, name, healt_points, strenght, crit_chacne, agility, defend):
+    def __init__(self, name, health_points, strenght, crit_chacne, agility, defend, mana_points):
         self.name = name
-        self.health_points = healt_points
+        self.health_points = health_points
         self.strenght = strenght
         self.crit_chance = crit_chacne
         self.agility = agility
         self.defend = defend
+        self.mana_points = mana_points
+        self.toxicity = 0
         self.is_alive = True
         self.backpack = []
-        
+        self.equipment = []
     #is it ok to add crit strike like that?
     def get_damage(self, damage):
         self.health_points = self.health_points - self.reduced_damage(damage)
@@ -49,4 +51,22 @@ class Character:
     def reduced_damage(self, damage):
         damage = damage * (1 - (self.defend/100))
         return damage
+    
+    def health_add(self, health_addion, toxicity):
+        self.health_points += health_addion
+        self.toxicity_add(toxicity)
+    
+    def mana_add(self, mana_addion, toxicity):
+        self.mana_points += mana_addion
+        self.toxicity_add(toxicity)
 
+    def toxicity_add(self, toxicity):
+        self.toxicity += toxicity
+        if self.toxicity < 0:
+            self.toxicity = 0
+        
+        # self.potion_used(player)
+
+    # def potion_used(self,player):
+    #     player.backpack.pop(self)
+    #     print('Potion used')
