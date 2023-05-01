@@ -10,7 +10,9 @@ Expected result:
 
 
 def calculate():
-    sum_of_numbers = sum([number for number in range(1,101) if number % 7 == 0 or number % 5 == 0 and number < 100])
+
+    sum_of_numbers = sum([number for number in range(100) if number % 7 == 0 or number % 5 == 0])
+
     return sum_of_numbers
 
 result = calculate()
