@@ -35,3 +35,4 @@ def solution(string):
 # -------------------------- TESTS ---------------------------
 assert solution(s1) == expected1
 assert solution(s2) == expected2
+assert solution(s3) == expected3
